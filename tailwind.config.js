@@ -18,6 +18,15 @@ module.exports = {
         'main-300': "rgb(179, 198, 255, 0.5)",
         'main-200': "rgb(179, 198, 255, 0.25)",
         'main-100': "rgb(179, 198, 255, 0.1)",
+      },
+      animation: {
+        wiggle: 'wiggle 0.3s ease-in-out',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '50%': { transform: 'rotate(25deg)' },
+        }
       }
     },
   },

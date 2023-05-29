@@ -2,6 +2,11 @@ import { changePage } from '@/app/GlobalRedux/Features/currentPage/currentPageSl
 import { toggle } from '@/app/GlobalRedux/Features/sidebar/sidebarSlice';
 import { RootState } from '@/app/GlobalRedux/store';
 import Image from 'next/image';
+
+import { BsBriefcase, BsBriefcaseFill, BsCalendar3Week, BsCalendar3WeekFill } from 'react-icons/bs';
+import { MdChat, MdDashboard, MdOutlineChat, MdOutlineDashboard } from 'react-icons/md';
+import { RiPencilRuler2Fill, RiPencilRuler2Line, RiSettings4Fill, RiSettings4Line } from 'react-icons/ri';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 const Sidebar = () => {
@@ -9,8 +14,6 @@ const Sidebar = () => {
     const currentPage = useSelector((state: RootState) => state.currentPage.value);
 
     const dispatch = useDispatch();
-
-    console.log(currentPage)
 
     return (
         <div>
@@ -23,8 +26,8 @@ const Sidebar = () => {
                     </svg>}
             </button>
 
-            <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`} aria-label="Sidebar">
-                <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} fixed flex flex-col justify-between items-center top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`} aria-label="Sidebar">
+                <div className="h-full px-3 py-4 overflow-y-auto bg-white w-full">
                     <div className="flex items-center pl-2.5 mb-5 py-6 gap-4 cursor-pointer">
                         <Image
                             src={require("../public/images/logo.png")}
@@ -37,42 +40,64 @@ const Sidebar = () => {
                     </div>
                     <ul className="space-y-2 font-medium pl-3">
                         <li>
-                            <div onClick={() => dispatch(changePage("Dashboard"))} className={"flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Dashboard" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
-                                <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                                <span className="ml-3">Dashboard</span>
+                            <div onClick={() => dispatch(changePage("Dashboard"))} className={"relative flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Dashboard" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
+                                <MdDashboard className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage === "Dashboard" ? "animate-wiggle opacity-100" : "opacity-0")} />
+                                <MdOutlineDashboard className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage !== "Dashboard" ? "opacity-100" : "opacity-0")} />
+                                <span className="ml-10 text-zinc-500">Dashboard</span>
                             </div>
                         </li>
                         <li>
-                            <div onClick={() => dispatch(changePage("Courses"))} className={"flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Courses" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
-                                <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 400 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                                <span className="flex-1 ml-3 whitespace-nowrap">Courses</span>
+                            <div onClick={() => dispatch(changePage("Courses"))} className={"relative flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Courses" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
+                                <BsBriefcaseFill className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage === "Courses" ? "animate-wiggle opacity-100" : "opacity-0")} />
+                                <BsBriefcase className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage !== "Courses" ? "opacity-100" : "opacity-0")} />
+                                <span className="ml-10 text-zinc-500">Courses</span>
                             </div>
                         </li>
                         <li>
-                            <div onClick={() => dispatch(changePage("Chat"))} className={"flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Chat" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
-                                <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
-                                <span className="flex-1 ml-3 whitespace-nowrap">Chat</span>
+                            <div onClick={() => dispatch(changePage("Chat"))} className={"relative flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Chat" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
+                                <MdChat className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage === "Chat" ? "animate-wiggle opacity-100" : "opacity-0")} />
+                                <MdOutlineChat className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage !== "Chat" ? "opacity-100" : "opacity-0")} />
+                                <span className="ml-10 text-zinc-500">Chat</span>
                             </div>
                         </li>
                         <li>
-                            <div onClick={() => dispatch(changePage("Grades"))} className={"flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Grades" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
-                                <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
-                                <span className="flex-1 ml-3 whitespace-nowrap">Grades</span>
+                            <div onClick={() => dispatch(changePage("Grades"))} className={"relative flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Grades" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
+                                <RiPencilRuler2Fill className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage === "Grades" ? "animate-wiggle opacity-100" : "opacity-0")} />
+                                <RiPencilRuler2Line className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage !== "Grades" ? "opacity-100" : "opacity-0")} />
+                                <span className="ml-10 text-zinc-500">Grades</span>
                             </div>
                         </li>
                         <li>
-                            <div onClick={() => dispatch(changePage("Schedule"))} className={"flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Schedule" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
-                                <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
-                                <span className="flex-1 ml-3 whitespace-nowrap">Schedule</span>
+                            <div onClick={() => dispatch(changePage("Schedule"))} className={"relative flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Schedule" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
+                                <BsCalendar3WeekFill className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage === "Schedule" ? "animate-wiggle opacity-100" : "opacity-0")} />
+                                <BsCalendar3Week className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage !== "Schedule" ? "opacity-100" : "opacity-0")} />
+                                <span className="ml-10 text-zinc-500">Schedule</span>
                             </div>
                         </li>
                         <li>
-                            <div onClick={() => dispatch(changePage("Settings"))} className={"flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Settings" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
-                                <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd"></path></svg>
-                                <span className="flex-1 ml-3 whitespace-nowrap">Settings</span>
+                            <div onClick={() => dispatch(changePage("Settings"))} className={"relative flex items-center p-2 text-gray-900 rounded-lg " + (currentPage === "Settings" ? "bg-main-400 hover:bg-main-400 font-semibold" : "hover:bg-main-200 cursor-pointer")}>
+                                <RiSettings4Fill className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage === "Settings" ? "animate-wiggle opacity-100" : "opacity-0")} />
+                                <RiSettings4Line className={"absolute w-6 h-6 fill-zinc-500 transition duration-250 " + (currentPage !== "Settings" ? "opacity-100" : "opacity-0")} />
+                                <span className="ml-10 text-zinc-500">Settings</span>
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div className='bg-white w-full flex justify-center items-center'>
+                    <div className="flex flex-col justify-end items-center my-6 bg-main-200 w-10/12 rounded-xl">
+                        <Image
+                            src={require("../public/images/premium.png")}
+                            height={500}
+                            width={500}
+                            className='w-20 h-24 -translate-y-4'
+                            alt="Logo"
+                        />
+                        <b className="text-center w-full font-bold text-sm my-2">Premium Subsciption</b>
+                        <span className="text-center text-xs font-medium w-9/12">Buy premium and get access to new courses</span>
+                        <button className="bg-main-500 rounded-lg text-center mt-6 mb-4 py-2 w-11/12 border border-main-500 hover:border-black">
+                            <span className="text-sm font-semibold text-black dark:text-black">More detailed</span>
+                        </button>
+                    </div>
                 </div>
             </aside>
         </div>
