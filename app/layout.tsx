@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 import { Providers } from './GlobalRedux/provider'
+import 'typeface-open-sans';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body style={{fontFamily: "Open Sans, sans-serif"}} className={inter.className}>
         <Providers>
           {children}
         </Providers>

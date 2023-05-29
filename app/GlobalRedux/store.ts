@@ -1,11 +1,13 @@
 'use client';
 
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './Features/counter/counterSlice';
+import sidebarReducer from './Features/sidebar/sidebarSlice';
+import currentPageReducer from './Features/currentPage/currentPageSlice';
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
+        sidebar: sidebarReducer,
+        currentPage: currentPageReducer,
     }
 })
 
