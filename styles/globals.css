@@ -5,27 +5,56 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --background-light: 252, 252, 253;
+  --background-dark: 10, 10, 10;
 }
 
-@media (prefers-color-scheme: white) {
+@media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: var(--background-light);
+    --background-start-rgb: var(--foreground-rgb);
+    --background-end-rgb: var(--foreground-rgb);
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: var(--background-dark);
+    --background-start-rgb: var(--foreground-rgb);
+    --background-end-rgb: var(--foreground-rgb);
+  }
+}
+
+.shadow {
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.75);
+}
+
+/* --------------------- Customize the scrollbar track ----------------------------*/
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Customize the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 9999px;
+}
+
+/* Customize the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(var(--background-start-rgb), var(--background-end-rgb));
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Open Sans', sans-serif;
 }
 
 .sidebar {

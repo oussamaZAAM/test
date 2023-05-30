@@ -9,14 +9,14 @@ import { RiPencilRuler2Fill, RiPencilRuler2Line, RiSettings4Fill, RiSettings4Lin
 
 import { useDispatch, useSelector } from 'react-redux';
 
-const Sidebar = () => {
+export default function Sidebar() {
     const isOpen = useSelector((state: RootState) => state.sidebar.isOpen);
     const currentPage = useSelector((state: RootState) => state.currentPage.value);
 
     const dispatch = useDispatch();
 
     return (
-        <div>
+        <>
             <button onClick={() => dispatch(toggle())} data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" className={`hamburger ${isOpen ? 'z-50 right-0 mr-3' : 'left-0 ml-3'} fixed top-0 items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200`}>
                 <span className="sr-only">Open sidebar</span>
                 {isOpen
@@ -28,7 +28,7 @@ const Sidebar = () => {
 
             <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} fixed flex flex-col justify-between items-center top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`} aria-label="Sidebar">
                 <div className="h-full px-3 py-4 overflow-y-auto bg-white w-full">
-                    <div className="flex items-center pl-2.5 mb-5 py-6 gap-4 cursor-pointer">
+                    <div className="flex items-center pl-2.5 mb-5 py-4 gap-4 cursor-pointer">
                         <Image
                             src={require("../public/images/logo.png")}
                             height={100}
@@ -100,8 +100,6 @@ const Sidebar = () => {
                     </div>
                 </div>
             </aside>
-        </div>
+        </>
     );
 };
-
-export default Sidebar
