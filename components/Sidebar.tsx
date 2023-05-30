@@ -26,8 +26,8 @@ export default function Sidebar() {
                     </svg>}
             </button>
 
-            <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} fixed flex flex-col justify-between items-center top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`} aria-label="Sidebar">
-                <div className="h-full px-3 py-4 overflow-y-auto bg-white w-full">
+            <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} overflow-y-auto fixed flex flex-col justify-between items-center top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`} aria-label="Sidebar">
+                <div className="h-full px-3 py-4 bg-white w-full">
                     <div className="flex items-center pl-2.5 mb-5 py-4 gap-4 cursor-pointer">
                         <Image
                             src={require("../public/images/logo.png")}

@@ -1,0 +1,6 @@
+ .progress-bar {
+   transition: stroke-dashoffset 0.5s ease;
+ }
+
+ .progress-label {
+ }
