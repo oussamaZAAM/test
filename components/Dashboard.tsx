@@ -4,10 +4,10 @@ import MyCourseRow from "./MyCourseRow";
 
 export default function Dashboard() {
     return (
-        <div className="flex flex-col justify-start items-start p-4 sm:ml-64">
+        <div className="flex flex-col justify-start items-start p-4 md:ml-64">
 
             {/* Dashboard Header + searchbar + notifications */}
-            <div className="flex justify-between items-center w-full my-4 max-w-[768px]">
+            <div className="flex justify-between items-center w-full my-4">
                 <span className="text-3xl font-semibold text-start">Dashboard</span>
                 <div className="flex justify-end items-center gap-2">
                     <div className="relative w-full">
@@ -23,7 +23,7 @@ export default function Dashboard() {
             </div>
 
             {/* New Courses  */}
-            <div className="flex flex-col justify-start items-stretch w-full max-w-[768px] my-4 gap-3">
+            <div className="flex flex-col justify-start items-stretch max-w-[512px] xl:max-w-[768px] my-4 gap-3">
                 <span className="text-xl font-semibold text-start my-2">New Courses</span>
                 <div className="flex justify-start items-center gap-2 overflow-x-scroll">
                     <CourseCard />
@@ -35,7 +35,7 @@ export default function Dashboard() {
             </div>
 
             {/* My Courses */}
-            <div className="flex flex-col justify-start items-stretch w-full max-w-[768px] my-4 gap-3">
+            <div className="flex flex-col justify-start items-stretch w-full my-4 gap-3">
                 <div className="flex justify-between items-center">
                     <span className="text-xl font-semibold text-start my-2">My Courses</span>
                     <span className="text-md font-regular text-end text-main-500 my-2 cursor-pointer hover:underline">View all</span>

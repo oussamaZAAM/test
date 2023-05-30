@@ -16,8 +16,8 @@ export default function Sidebar() {
     const dispatch = useDispatch();
 
     return (
-        <>
-            <button onClick={() => dispatch(toggle())} data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" className={`hamburger ${isOpen ? 'z-50 right-0 mr-3' : 'left-0 ml-3'} fixed top-0 items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200`}>
+        <div className=''>
+            <button onClick={() => dispatch(toggle())} data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" className={`hamburger ${isOpen ? 'z-50 right-0 mr-3' : 'left-0 ml-3'} fixed top-0 items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200`}>
                 <span className="sr-only">Open sidebar</span>
                 {isOpen
                     ? <svg className="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" /></svg>
@@ -26,7 +26,7 @@ export default function Sidebar() {
                     </svg>}
             </button>
 
-            <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} overflow-y-auto fixed flex flex-col justify-between items-center top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0`} aria-label="Sidebar">
+            <aside id="logo-sidebar" className={`sidebar ${isOpen ? 'open' : ''} overflow-y-auto fixed flex flex-col justify-between items-center top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0`} aria-label="Sidebar">
                 <div className="h-full px-3 py-4 bg-white w-full">
                     <div className="flex items-center pl-2.5 mb-5 py-4 gap-4 cursor-pointer">
                         <Image
@@ -100,6 +100,6 @@ export default function Sidebar() {
                     </div>
                 </div>
             </aside>
-        </>
+        </div>
     );
 };

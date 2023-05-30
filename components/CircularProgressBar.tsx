@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/CircularProgressBar.css';
 
 interface CircularProgressBarProps {
   percentage: number;
@@ -26,7 +25,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         strokeWidth={strokeWidth}
       />
       <circle
-        className={"fill-none progress-bar "+(clicked ? "stroke-white" : "stroke-main-500")}
+        className={"fill-none transition-all duration-500 ease-linear "+(clicked ? "stroke-white" : "stroke-main-500")}
         cx={radius}
         cy={radius}
         r={radius - strokeWidth}

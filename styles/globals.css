@@ -50,6 +50,18 @@
   background-color: #aaa;
 }
 
+.hide-scrollbar {
+  overflow-y: hidden;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.hide-scrollbar::-moz-scrollbar-thumb {
+  background-color: transparent;
+}
+
 
 body {
   background: linear-gradient(var(--background-start-rgb), var(--background-end-rgb));
@@ -72,7 +84,7 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
   .sidebar {
     transform: translateX(-100%);
   }
