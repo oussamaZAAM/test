@@ -14,7 +14,7 @@ export default function Profile() {
         <>
 
             {/* Dashboard Header + notifications */}
-            <div className="flex justify-between items-center w-full my-4">
+            <div className="flex justify-between items-center w-full mt-4 mb-2">
                 <span className="text-2xl font-semibold text-start">Profile</span>
                 <div className="flex justify-end items-center gap-2">
                     <div className="flex justify-center items-center p-2.5 rounded-md bg-white shadow">
@@ -37,8 +37,8 @@ export default function Profile() {
             </div>
 
             {/* Calendar */}
-            <div className="flex flex-col justify-start items-center">
-                <Calendar className="!border-0" value={selectedDate} onChange={onChange} />
+            <div className="flex flex-col justify-start items-center mt-1">
+                <Calendar className="!rounded-md !border-main-500 !p-2 !w-full" value={selectedDate} onChange={onChange} />
             </div>
         </>
     )
