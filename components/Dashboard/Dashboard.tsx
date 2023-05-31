@@ -99,11 +99,20 @@ export default function Dashboard() {
                             </tr>
                         </thead>
                         <tbody>
-                            {myCourses.map(course => {
-                                return (
-                                    <MyCourseRow key={course.uuid} course={course} />
-                                )
-                            })}
+                            {myCourses.length > 0
+                                ? myCourses.map(course => {
+                                    return (
+                                        <MyCourseRow key={course.uuid} course={course} />
+                                    )
+                                })
+                                :
+                                <tr className="bg-white font-semibold">
+                                    <td className="h-8 animate-pulse bg-gray-300 rounded-full py-1.5"></td>
+                                    <td className="h-8 animate-pulse bg-gray-300 rounded-full py-1.5 w-[60px] md:w-[80px] xl:w-[100px] mx-2"></td>
+                                    <td className="h-8 animate-pulse bg-gray-300 rounded-full py-1.5 w-[60px] md:w-[80px] xl:w-[100px] mx-2"></td>
+                                    <td className="h-8 animate-pulse bg-gray-300 rounded-full py-1.5 w-[60px] md:w-[80px] xl:w-[100px] mx-2"></td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
