@@ -26,7 +26,7 @@ export default function Profile() {
             {/* Profile Informations */}
             <div className="flex flex-col justify-start items-center">
                 <Image
-                    src={require("../public/images/avatar 1.png")}
+                    src={require("../../public/images/avatar 1.png")}
                     width={500}
                     height={500}
                     className="h-24 w-24 rounded-full"

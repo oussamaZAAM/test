@@ -30,7 +30,7 @@ export default function Sidebar() {
                 <div className="h-full px-3 py-4 bg-white w-full">
                     <div className="flex items-center pl-2.5 mb-5 py-4 gap-4 cursor-pointer">
                         <Image
-                            src={require("../public/images/logo.png")}
+                            src={require("../../public/images/logo.png")}
                             height={100}
                             width={100}
                             className='h-10 w-10'
@@ -86,7 +86,7 @@ export default function Sidebar() {
                 <div className='bg-white w-full flex justify-center items-center'>
                     <div className="flex flex-col justify-end items-center my-6 bg-main-200 w-10/12 rounded-xl">
                         <Image
-                            src={require("../public/images/premium.png")}
+                            src={require("../../public/images/premium.png")}
                             height={500}
                             width={500}
                             className='w-20 h-24 -translate-y-4'

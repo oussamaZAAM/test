@@ -12,7 +12,7 @@ export default function CourseCard({ course }: CourseCardProps) {
             return (
                 <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-orange-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-orange-300"><Image
-                        src={require("../public/images/geography.png")}
+                        src={require("../../public/images/geography.png")}
                         width={500}
                         height={500}
                         className="h-20 w-24"
@@ -24,21 +24,21 @@ export default function CourseCard({ course }: CourseCardProps) {
                     <div className="flex justify-between items-center w-full">
                         <div className="relative flex justify-center items-center w-full">
                             <Image
-                                src={require("../public/images/avatar 1.png")}
+                                src={require("../../public/images/avatar 1.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-0 h-6 w-6 rounded-full"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 2.png")}
+                                src={require("../../public/images/avatar 2.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-5 h-6 w-6 rounded-full z-10"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 3.png")}
+                                src={require("../../public/images/avatar 3.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-10 h-6 w-6 rounded-full z-20"
@@ -56,7 +56,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                 <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-violet-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-violet-300">
                         <Image
-                            src={require("../public/images/javascript.png")}
+                            src={require("../../public/images/javascript.png")}
                             width={500}
                             height={500}
                             className="h-20 w-24"
@@ -68,21 +68,21 @@ export default function CourseCard({ course }: CourseCardProps) {
                     <div className="flex justify-between items-center w-full">
                         <div className="relative flex justify-center items-center w-full">
                             <Image
-                                src={require("../public/images/avatar 1.png")}
+                                src={require("../../public/images/avatar 1.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-0 h-6 w-6 rounded-full"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 2.png")}
+                                src={require("../../public/images/avatar 2.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-5 h-6 w-6 rounded-full z-10"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 3.png")}
+                                src={require("../../public/images/avatar 3.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-10 h-6 w-6 rounded-full z-20"
@@ -100,7 +100,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                 <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-cyan-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-cyan-300">
                         <Image
-                            src={require("../public/images/photography.png")}
+                            src={require("../../public/images/photography.png")}
                             width={500}
                             height={500}
                             className="h-20 w-24"
@@ -112,21 +112,21 @@ export default function CourseCard({ course }: CourseCardProps) {
                     <div className="flex justify-between items-center w-full">
                         <div className="relative flex justify-center items-center w-full">
                             <Image
-                                src={require("../public/images/avatar 1.png")}
+                                src={require("../../public/images/avatar 1.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-0 h-6 w-6 rounded-full"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 2.png")}
+                                src={require("../../public/images/avatar 2.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-5 h-6 w-6 rounded-full z-10"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 3.png")}
+                                src={require("../../public/images/avatar 3.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-10 h-6 w-6 rounded-full z-20"
@@ -144,7 +144,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                 <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-zinc-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-zinc-300">
                         <Image
-                            src={require("../public/images/logo.png")}
+                            src={require("../../public/images/logo.png")}
                             width={500}
                             height={500}
                             className="h-20 w-24"
@@ -156,21 +156,21 @@ export default function CourseCard({ course }: CourseCardProps) {
                     <div className="flex justify-between items-center w-full">
                         <div className="relative flex justify-center items-center w-full">
                             <Image
-                                src={require("../public/images/avatar 1.png")}
+                                src={require("../../public/images/avatar 1.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-0 h-6 w-6 rounded-full"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 2.png")}
+                                src={require("../../public/images/avatar 2.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-5 h-6 w-6 rounded-full z-10"
                                 alt="Avatar"
                             />
                             <Image
-                                src={require("../public/images/avatar 3.png")}
+                                src={require("../../public/images/avatar 3.png")}
                                 width={100}
                                 height={100}
                                 className="absolute left-10 h-6 w-6 rounded-full z-20"
