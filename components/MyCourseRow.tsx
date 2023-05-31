@@ -1,6 +1,12 @@
+import { MyCourseState } from "@/interfaces/Course";
+import { convertStringToDate, formatDateMMDD } from "@/public/utils";
 import  { SiMaterialdesignicons } from "react-icons/si";
 
-export default function MyCourseRow() {
+interface CourseCardProps {
+    course: MyCourseState;
+}
+
+export default function MyCourseRow ({course}: CourseCardProps) {
     return (
         <tr className="bg-white font-semibold">
             <th scope="row" className="py-1.5 text-gray-900 whitespace-nowrap flex justify-start items-center gap-3">
@@ -8,18 +14,18 @@ export default function MyCourseRow() {
                     <SiMaterialdesignicons className="h-6 w-6 fill-main-500" />
                 </div>
                 <div className="flex flex-col justify-start items-start gap-1">
-                    <span className="">Web Design</span>
+                    <span className="truncate whitespace-normal mr-1">{course.name}</span>
                     <span className="text-xs font-medium text-zinc-300">10 lessons</span>
                 </div>
             </th>
-            <td className="w-[150px] py-1.5">
-                May 12
+            <td className="py-1.5 w-[60px] md:w-[80px] xl:w-[100px] text-xs md:text-sm">
+                {formatDateMMDD(convertStringToDate(course.created_at))}
             </td>
-            <td className="w-[75px] py-1.5">
-                4.8
+            <td className="py-1.5 w-[60px] md:w-[80px] xl:w-[100px] text-xs md:text-sm">
+                {course.order}
             </td>
-            <td className="w-[120px] py-1.5">
-                Elementary
+            <td className="py-1.5 w-[60px] md:w-[80px] xl:w-[100px] text-xs md:text-sm">
+                {course.price} $
             </td>
         </tr>
     )

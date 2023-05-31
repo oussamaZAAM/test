@@ -1,10 +1,50 @@
 import { BsBell } from "react-icons/bs";
 import CourseCard from "./CourseCard";
 import MyCourseRow from "./MyCourseRow";
+import { useEffect } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/GlobalRedux/store";
+import { changeMyCourses } from "@/app/GlobalRedux/Features/myCourses/myCoursesSlice";
+
+const howMuchCoursesToDisplay = 4;
 
 export default function Dashboard() {
+    const myCourses = useSelector((state: RootState) => state.myCourses);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        async function fetchCourses(url: string, token: string) {
+            try {
+                const response = await axios.get(url, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
+                // Get the data needed ready
+                const { data } = response.data;
+
+                for (let i = 0; i < howMuchCoursesToDisplay; i++) {
+
+                    // Change the data
+                    dispatch(changeMyCourses({
+                        name: data[i].name,
+                        created_at: data[i].created_at,
+                        order: data[i].order,
+                        price: data[i].price,
+                        uuid: data[i].uuid
+                    }));
+                }
+            } catch (error) {
+                // Handle the error
+                alert("API Error");
+            }
+        }
+        fetchCourses("https://api.teachizy.fr/api/v1/trainings", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnRlYWNoaXp5LmZyXC9hcGlcL3YxXC9sb2dpbiIsImlhdCI6MTY4NTUxOTQyNSwiZXhwIjoxNjg1Nzc4NjI1LCJuYmYiOjE2ODU1MTk0MjUsImp0aSI6IjRtYmVFMjVYYVZwU2oxYUMiLCJzdWIiOiJmMGMzNGM1Yy05NmRhLTRkNzktODhjZC1mMjUzNjNlMTEyZTEiLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIiwidHlwZSI6IlVTRVIifQ.0KB8adSzJBxELVugpF1e-3wrEdD9OtqaWn27aNZOBoo");
+    }, [])
+
     return (
-        <div className="flex flex-col justify-start items-start p-4 md:ml-64">
+        <div className="flex flex-col justify-start items-start p-4 md:ml-64 w-8/12">
 
             {/* Dashboard Header + searchbar + notifications */}
             <div className="flex justify-between items-center w-full my-4">
@@ -23,14 +63,13 @@ export default function Dashboard() {
             </div>
 
             {/* New Courses  */}
-            <div className="flex flex-col justify-start items-stretch max-w-[512px] xl:max-w-[768px] my-4 gap-3">
+            <div className="flex flex-col justify-start items-stretch max-w-[300px] sm:max-w-[412px] md:max-w-[512px] xl:max-w-[768px] my-4 gap-3">
                 <span className="text-xl font-semibold text-start my-2">New Courses</span>
-                <div className="flex justify-start items-center gap-2 overflow-x-scroll">
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
+                <div className="flex justify-start items-center gap-2 overflow-x-auto">
+                    <CourseCard course={{ name: "Geography", lessons: 12 }} />
+                    <CourseCard course={{ name: "Javascript", lessons: 1 }} />
+                    <CourseCard course={{ name: "Photography", lessons: 0 }} />
+                    <CourseCard course={{ name: "Others", lessons: 100 }} />
                 </div>
             </div>
 
@@ -43,24 +82,28 @@ export default function Dashboard() {
 
                 <div className="relative overflow-x-auto">
                     <table className="w-full text-md text-left">
-                        <thead className="text-sm font-thin text-zinc-300">
+                        <thead className="text-sm font-thin text-zinc-400">
                             <tr>
                                 <th scope="col" className="py-3">
                                     Course name
                                 </th>
-                                <th scope="col" className="w-[150px] py-3">
+                                <th scope="col" className="w-[60px] md:w-[80px] xl:w-[100px] py-3 text-xs md:text-sm">
                                     Start
                                 </th>
-                                <th scope="col" className="w-[75px] py-3">
-                                    Rate
+                                <th scope="col" className="w-[60px] md:w-[80px] xl:w-[100px] py-3 text-xs md:text-sm">
+                                    Order
                                 </th>
-                                <th scope="col" className="w-[120px] py-3">
-                                    Level
+                                <th scope="col" className="w-[60px] md:w-[80px] xl:w-[100px] py-3 text-xs md:text-sm">
+                                    Price
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <MyCourseRow />
+                            {myCourses.map(course => {
+                                return (
+                                    <MyCourseRow key={course.uuid} course={course} />
+                                )
+                            })}
                         </tbody>
                     </table>
                 </div>
