@@ -10,7 +10,7 @@ export default function CourseCard({ course }: CourseCardProps) {
     switch (course.name) {
         case "Geography":
             return (
-                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-orange-100">
+                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] cursor-pointer bg-orange-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-orange-300"><Image
                         src={require("../../public/images/geography.png")}
                         width={500}
@@ -53,7 +53,7 @@ export default function CourseCard({ course }: CourseCardProps) {
             )
         case "Javascript":
             return (
-                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-violet-100">
+                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] cursor-pointer bg-violet-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-violet-300">
                         <Image
                             src={require("../../public/images/javascript.png")}
@@ -97,7 +97,7 @@ export default function CourseCard({ course }: CourseCardProps) {
             )
         case "Photography":
             return (
-                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-cyan-100">
+                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] cursor-pointer bg-cyan-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-cyan-300">
                         <Image
                             src={require("../../public/images/photography.png")}
@@ -141,7 +141,7 @@ export default function CourseCard({ course }: CourseCardProps) {
             )
         default:
             return (
-                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] bg-zinc-100">
+                <div className="flex flex-col justify-start items-center rounded-xl p-3 min-w-[184px] cursor-pointer bg-zinc-100">
                     <div className="flex justify-start items-center rounded-lg py-5 px-8 bg-zinc-300">
                         <Image
                             src={require("../../public/images/logo.png")}

@@ -1,15 +1,20 @@
+import { changeMyCourses } from "@/app/GlobalRedux/Features/myCourses/myCoursesSlice";
+import { RootState } from "@/app/GlobalRedux/store";
+import axios from "axios";
+import { useEffect } from "react";
 import { BsBell } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
 import CourseCard from "./CourseCard";
 import MyCourseRow from "./MyCourseRow";
-import { useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/app/GlobalRedux/store";
-import { changeMyCourses } from "@/app/GlobalRedux/Features/myCourses/myCoursesSlice";
 
 const howMuchCoursesToDisplay = 4;
 
+const API_URL = "https://api.teachizy.fr/api/v1/trainings";
+const API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnRlYWNoaXp5LmZyXC9hcGlcL3YxXC9sb2dpbiIsImlhdCI6MTY4NTUxOTQyNSwiZXhwIjoxNjg1Nzc4NjI1LCJuYmYiOjE2ODU1MTk0MjUsImp0aSI6IjRtYmVFMjVYYVZwU2oxYUMiLCJzdWIiOiJmMGMzNGM1Yy05NmRhLTRkNzktODhjZC1mMjUzNjNlMTEyZTEiLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIiwidHlwZSI6IlVTRVIifQ.0KB8adSzJBxELVugpF1e-3wrEdD9OtqaWn27aNZOBoo";
+
 export default function Dashboard() {
+
+
     const myCourses = useSelector((state: RootState) => state.myCourses);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -40,7 +45,7 @@ export default function Dashboard() {
                 alert("API Error");
             }
         }
-        fetchCourses("https://api.teachizy.fr/api/v1/trainings", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnRlYWNoaXp5LmZyXC9hcGlcL3YxXC9sb2dpbiIsImlhdCI6MTY4NTUxOTQyNSwiZXhwIjoxNjg1Nzc4NjI1LCJuYmYiOjE2ODU1MTk0MjUsImp0aSI6IjRtYmVFMjVYYVZwU2oxYUMiLCJzdWIiOiJmMGMzNGM1Yy05NmRhLTRkNzktODhjZC1mMjUzNjNlMTEyZTEiLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIiwidHlwZSI6IlVTRVIifQ.0KB8adSzJBxELVugpF1e-3wrEdD9OtqaWn27aNZOBoo");
+        fetchCourses(API_URL, API_KEY);
     }, [])
 
     return (
